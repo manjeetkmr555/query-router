@@ -1,0 +1,31 @@
+[project]
+name = "query-router"
+version = "0.1.0"
+description = "Intent router with separate GitHub and Linear agents"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic-ai",
+  "pydantic-settings",
+  "fastapi",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "httpx"]
+
+[project.scripts]
+query-router = "query_router.main:main"
+query-router-api = "query_router.api.app:main"
+
+[tool.setuptools.package-data]
+query_router = ["web/*"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

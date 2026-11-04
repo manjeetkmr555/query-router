@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Query router</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="mast">
+        <h1>Query router</h1>
+        <p class="lede">
+          Type a question. The router decides whether it belongs to GitHub, Linear, needs a clarification, or cannot be answered.
+        </p>
+      </header>
+
+      <form id="route-form" class="panel">
+        <label for="query">Your query</label>
+        <textarea
+          id="query"
+          name="query"
+          rows="4"
+          maxlength="4000"
+          required
+          placeholder="List open pull requests"
+        ></textarea>
+        <button type="submit" id="submit">Route query</button>
+      </form>
+
+      <section id="result" class="result" hidden aria-live="polite"></section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

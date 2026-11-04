@@ -1,0 +1,152 @@
+:root {
+  color-scheme: light;
+  --ink: #1a1a1a;
+  --muted: #5f5f5f;
+  --line: #e6e6e6;
+  --paper: #ffffff;
+  --card: #ffffff;
+  --accent: #1a1a1a;
+  --accent-ink: #ffffff;
+  --danger: #8f2d2d;
+  --danger-bg: #fdf2f2;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.page {
+  width: min(40rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 3rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.lede {
+  margin: 0.5rem 0 0;
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.panel,
+.result {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 7rem;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+#submit {
+  display: block;
+  margin-top: 0.85rem;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.result[hidden] {
+  display: none;
+}
+
+.result h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0.35rem 0.75rem;
+  margin: 0.85rem 0 0;
+  font-size: 0.9rem;
+}
+
+.meta dt {
+  color: var(--muted);
+}
+
+.meta dd {
+  margin: 0;
+}
+
+.reply {
+  margin: 0.85rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.result.error {
+  background: var(--danger-bg);
+  border-color: #f0d0d0;
+  color: var(--danger);
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding-top: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.35rem;
+  }
+
+  .meta {
+    grid-template-columns: 1fr;
+  }
+}
