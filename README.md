@@ -81,11 +81,11 @@ query-router/
 2. git clone https://github.com/manjeetkmr555/query-router.git
    cd query-router
 
-3. Create and activate a virtualenv — python3 -m venv .venv, then source .venv/bin/activate on macOS/Linux and .venv\Scripts\activate on Windows.
+3. Create and activate a virtualenv — python3 -m venv .venv, then source .venv/bin/activate on macOS/Linux.
 
-4. Install — pip install -e ".[dev]" so both console scripts and pytest are available.
+4. Install — pip install -e ".[dev]" .
 
-5. Configure — cp .env.example .env (Windows: copy .env.example .env), then set OPENAI_API_KEY. Note that .env is gitignored and must stay in the project root, because the app loads it       from the current directory.
+5. Configure — cp .env.example .env 
 
 
 ## Tests
@@ -94,4 +94,3 @@ query-router/
 pytest
 ```
 
-Tests stub the classifier, so they run without an API key.
