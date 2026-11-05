@@ -8,34 +8,40 @@ Query Router is a Python-based application that analyzes user queries, identifie
 
 ## Project Structure
 
+## Project Structure
+
+```text
 query-router/
 │
-├── src/query_router/
-│   ├── main.py                 # terminal entry: one query
-│   ├── config.py               # OPENAI_API_KEY and ROUTER_MODEL
-│   ├── service.py              # classify, then dispatch, then log
-│   ├── dispatch.py             # send the decision to the right place
-│   ├── contracts.py            # destination and RouteDecision
-│   │
-│   ├── api/
-│   │   ├── app.py              # web server and POST /api/route
-│   │   └── schemas.py          # request and response models
-│   │
-│   ├── routing/
-│   │   ├── router.py           # classifier (one model call)
-│   │   ├── prompts.py          # classifier instructions
-│   │   └── replies.py          # clarifying question and refusal text
-│   │
-│   ├── agents/
-│   │   ├── base.py             # agent interface
-│   │   ├── registry.py         # GitHub and Linear lookup
-│   │   ├── github/agent.py
-│   │   └── linear/agent.py
-│   │
-│   └── web/
-│       ├── index.html
-│       ├── app.js
-│       └── styles.css
+├── src/
+│   └── query_router/
+│       ├── main.py                 # Terminal entry: one query
+│       ├── config.py               # OPENAI_API_KEY and ROUTER_MODEL
+│       ├── service.py              # Classify, dispatch, and log
+│       ├── dispatch.py             # Send decision to the right place
+│       ├── contracts.py            # Destination and RouteDecision
+│       │
+│       ├── api/
+│       │   ├── app.py              # Web server and POST /api/route
+│       │   └── schemas.py          # Request and response models
+│       │
+│       ├── routing/
+│       │   ├── router.py           # Classifier (one model call)
+│       │   ├── prompts.py          # Classifier instructions
+│       │   └── replies.py          # Clarifying question and refusal text
+│       │
+│       ├── agents/
+│       │   ├── base.py             # Agent interface
+│       │   ├── registry.py         # GitHub and Linear lookup
+│       │   ├── github/
+│       │   │   └── agent.py
+│       │   └── linear/
+│       │       └── agent.py
+│       │
+│       └── web/
+│           ├── index.html
+│           ├── app.js
+│           └── styles.css
 │
 ├── tests/
 │   ├── test_api.py
@@ -45,6 +51,7 @@ query-router/
 ├── pyproject.toml
 ├── .env.example
 └── README.md
+```
 
 ## Features
 
