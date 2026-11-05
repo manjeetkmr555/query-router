@@ -4,6 +4,48 @@
 
 Query Router is a Python-based application that analyzes user queries, identifies their intent, and routes them to the appropriate handlers to generate relevant responses. The application runs locally at http://127.0.0.1:8000.
 
+
+
+## Project Structure
+
+query-router/
+│
+├── src/query_router/
+│   ├── main.py                 # terminal entry: one query
+│   ├── config.py               # OPENAI_API_KEY and ROUTER_MODEL
+│   ├── service.py              # classify, then dispatch, then log
+│   ├── dispatch.py             # send the decision to the right place
+│   ├── contracts.py            # destination and RouteDecision
+│   │
+│   ├── api/
+│   │   ├── app.py              # web server and POST /api/route
+│   │   └── schemas.py          # request and response models
+│   │
+│   ├── routing/
+│   │   ├── router.py           # classifier (one model call)
+│   │   ├── prompts.py          # classifier instructions
+│   │   └── replies.py          # clarifying question and refusal text
+│   │
+│   ├── agents/
+│   │   ├── base.py             # agent interface
+│   │   ├── registry.py         # GitHub and Linear lookup
+│   │   ├── github/agent.py
+│   │   └── linear/agent.py
+│   │
+│   └── web/
+│       ├── index.html
+│       ├── app.js
+│       └── styles.css
+│
+├── tests/
+│   ├── test_api.py
+│   ├── test_dispatch.py
+│   └── test_registry.py
+│
+├── pyproject.toml
+├── .env.example
+└── README.md
+
 ## Features
 
 
