@@ -1,44 +1,43 @@
 # Query router
 
-A small app that classifies one query and sends it to a GitHub agent, a Linear agent, a clarifying question, or a refusal. The page is at `http://127.0.0.1:8000`.
+## Description
 
-Requires Python 3.11 or newer and an OpenAI API key. The classifier uses `openai:gpt-4o-mini` unless you set another model.
+Query Router is a Python-based application that analyzes user queries, identifies their intent, and routes them to the appropriate handlers to generate relevant responses. The application runs locally at http://127.0.0.1:8000.
 
-## Setup
+## Features
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e ".[dev]"
-cp .env.example .env
-```
 
-Edit `.env` and set your key:
+- Accepts user queries.
+- Classifies user intent.
+- Routes queries to appropriate handlers.
+- Returns structured responses.
 
-```bash
-OPENAI_API_KEY=sk-your-key
-ROUTER_MODEL=openai:gpt-4o-mini
-```
 
-`OPENAI_API_KEY` is required. `ROUTER_MODEL` is optional.
 
-## Run the web app
 
-```bash
-query-router-api
-```
+## Tech Stack
 
-Open [http://127.0.0.1:8000](http://127.0.0.1:8000), type a query, and submit it. The page shows the destination, intent, confidence, and reply.
+- Python
+- FastAPI – Backend framework.
+- Pydantic – Data validation.
+- Uvicorn – Runs the FastAPI application.
+- Pytest – Automated testing.
 
-The server listens on `127.0.0.1:8000`. A missing `OPENAI_API_KEY` returns HTTP 503 when you submit a query.
 
-## Run one query from the terminal
+## Installation and Setup
 
-```bash
-query-router "List open pull requests"
-```
 
-The result is a single log line with the destination, intent, confidence, reply, and duration. This command uses the same classifier as the web app and needs `.env`.
+1. Prerequisites — Python 3.11+, an OpenAI API key, and git. 
+
+2. git clone https://github.com/manjeetkmr555/query-router.git
+   cd query-router
+
+3. Create and activate a virtualenv — python3 -m venv .venv, then source .venv/bin/activate on macOS/Linux and .venv\Scripts\activate on Windows.
+
+4. Install — pip install -e ".[dev]" so both console scripts and pytest are available.
+
+5. Configure — cp .env.example .env (Windows: copy .env.example .env), then set OPENAI_API_KEY. Note that .env is gitignored and must stay in the project root, because the app loads it       from the current directory.
+
 
 ## Tests
 
